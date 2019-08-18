@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$gex-primary: mat-palette($mat-indigo);
+$gex-accent: mat-palette($mat-pink, A200, A100, A400);
+$gex-warn: mat-palette($mat-red);
+$gex-theme: mat-dark-theme($gex-primary, $gex-accent, $gex-warn);
+
+.gex-theme {
+    @include angular-material-theme($gex-theme);
+}
