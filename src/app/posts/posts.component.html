@@ -1,13 +1,9 @@
-<mat-card class="todo"
-          *ngFor="let post of posts">
-    <mat-card-header>
-        <mat-card-title>Title</mat-card-title>
-        <span class="spacer"></span>
-        <small class="text-muted"><i>#postId</i></small>
-    </mat-card-header>
-    <mat-card-content>
-        Post content
-    </mat-card-content>
-    <mat-card-actions>
-    </mat-card-actions>
-</mat-card>
+<app-post-form></app-post-form>
+
+<div class="posts my-4">
+    <app-post *ngFor="let post of posts$ | async"
+              [post]="post"
+              [@collapse]="'in'"
+              class="my-4">
+    </app-post>
+</div>

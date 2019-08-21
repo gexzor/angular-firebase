@@ -1,3 +1,11 @@
+@import '../assets/sass/variables';
+
 mat-sidenav-container {
     height: 100vh;
+
+    .outlet-wrapper {
+        margin: 0 auto;
+        padding: 8 * $pd 4 * $pd;
+        max-width: 800px;
+    }
 }

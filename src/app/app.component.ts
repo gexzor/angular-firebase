@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-root',
@@ -6,7 +7,17 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
-    sidenavOpened: boolean = false;
-    title = 'angular-firebase';
+export class AppComponent implements OnInit {
+    public sidenavOpened: boolean = true;
+
+    constructor(public breakpointObserver: BreakpointObserver) {
+    }
+
+    public ngOnInit(): void {
+        this.breakpointObserver
+            .observe([Breakpoints.Small, Breakpoints.HandsetPortrait])
+            .subscribe((state: BreakpointState) => {
+                state.matches ? this.sidenavOpened = false : this.sidenavOpened = true;
+            });
+    }
 }

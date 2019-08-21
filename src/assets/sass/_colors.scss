@@ -1,0 +1,57 @@
+@import 'palettes';
+@import '~@angular/material/theming';
+
+$gex-primary: mat-palette($mat-deep-purple, 800);
+$gex-accent: mat-palette($mat-purple, A200, A100, A400);
+$gex-warn: mat-palette($mat-red);
+$gex-success: mat-palette($success-palette);
+$gex-theme: mat-dark-theme($gex-primary, $gex-accent, $gex-warn);
+$gex-light-theme: mat-light-theme($gex-primary, $gex-accent, $gex-warn);
+
+$primary: mat-color($gex-primary);
+$primary-hover: mat-color($gex-primary, darker);
+$primary-active: mat-color($gex-primary, 800);
+
+$accent: mat-color($gex-accent);
+$accent-hover: mat-color($gex-accent, darker);
+$accent-active: mat-color($gex-accent, 800);
+
+$success: mat-color($gex-success);
+$success-hover: mat-color($gex-success, darker);
+$success-active: mat-color($gex-success, 800);
+
+$warn: mat-color($gex-warn);
+$warn-hover: mat-color($gex-warn, darker);
+$warn-active: mat-color($gex-warn, 800);
+
+$danger: $warn;
+$danger-hover: $warn-hover;
+$danger-active: $warn-active;
+
+$font-primary: $primary;
+$font-accent: $accent;
+$font-success: $success;
+$font-warn: $warn;
+$font-danger: $warn;
+
+$text-primary: $font-primary;
+$text-accent: $font-accent;
+$text-success: $font-success;
+$text-warn: $font-warn;
+$text-danger: $font-warn;
+
+.text-success {
+    color: $text-success;
+}
+
+.text-danger {
+    color: $text-danger;
+}
+
+.font-success {
+    color: $text-success;
+}
+
+.font-danger {
+    color: $text-danger;
+}

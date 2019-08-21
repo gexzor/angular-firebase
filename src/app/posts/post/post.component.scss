@@ -1,0 +1,13 @@
+@import '../../../assets/sass/colors';
+
+mat-card-header {
+    cursor: pointer;
+
+    mat-card-title {
+        color: $accent;
+    }
+}
+
+.spacer {
+    flex: 1 1 auto;
+}

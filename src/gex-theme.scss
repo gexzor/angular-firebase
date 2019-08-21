@@ -1,11 +1,18 @@
-@import '~@angular/material/theming';
+@import 'assets/sass/colors';
+@import 'assets/sass/overwrites';
 @include mat-core();
 
-$gex-primary: mat-palette($mat-indigo);
-$gex-accent: mat-palette($mat-pink, A200, A100, A400);
-$gex-warn: mat-palette($mat-red);
-$gex-theme: mat-dark-theme($gex-primary, $gex-accent, $gex-warn);
+@mixin custom-overwrites($theme) {
+    @include custom-card-header-text($theme);
+    @include ui-buttons($theme);
+}
 
 .gex-theme {
+    @include custom-overwrites($gex-theme);
     @include angular-material-theme($gex-theme);
+}
+
+.gex-light-theme {
+    @include custom-overwrites($gex-light-theme);
+    @include angular-material-theme($gex-light-theme);
 }

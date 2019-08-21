@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title [routerLink]="[ '/posts/', post.id]">{{ post.title }}</mat-card-title>
+        <mat-card-subtitle>{{ post.subtitle }}</mat-card-subtitle>
+        <span class="spacer"></span>
+        <small class="text-muted"><i>#{{ post.id }}</i></small>
+    </mat-card-header>
+    <mat-card-content class="mt-4">
+        {{ post.content }}
+    </mat-card-content>
+    <mat-card-actions class="d-flex justify-content-end">
+        <button mat-stroked-button
+                color="accent"
+                (click)="deletePost(post)">
+            DELETE
+        </button>
+    </mat-card-actions>
+</mat-card>

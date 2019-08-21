@@ -1,0 +1,64 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Write a post</mat-card-title>
+    </mat-card-header>
+
+    <form #formDirective="ngForm"
+          [formGroup]="postForm"
+          (ngSubmit)="submitForm(formDirective)"
+          class="d-flex flex-column">
+        <mat-form-field color="accent"
+                        class="mt-2">
+            <input matInput
+                   placeholder="Title"
+                   formControlName="title">
+            <mat-hint align="start"
+                      class="text-danger"
+                      *ngIf="title.invalid && title.dirty">
+                {{ getErrorMessage().titleError }}
+            </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field color="accent"
+                        class="mt-2">
+            <input matInput
+                   placeholder="Subtitle"
+                   formControlName="subtitle">
+            <mat-hint align="start"
+                      class="text-danger"
+                      *ngIf="subtitle.invalid && subtitle.dirty">
+                {{ getErrorMessage().subtitleError }}
+            </mat-hint>
+        </mat-form-field>
+
+
+        <mat-form-field color="accent"
+                        class="mt-2">
+            <textarea matInput
+                      matAutosizeMinRows=5
+                      placeholder="Write something..."
+                      formControlName="content"></textarea>
+
+            <mat-hint align="start"
+                      [ngClass]="content.value.length <= contentMaxLength ? 'text-success' : 'text-danger'"
+                      *ngIf="contentMaxLength - content.value.length < 50">
+                {{ content.value.length }}/{{ contentMaxLength }} characters
+            </mat-hint>
+        </mat-form-field>
+
+        <mat-action-row class="d-flex justify-content-end">
+            <button mat-button
+                    color="accent"
+                    (click)="resetForm(formDirective)"
+                    [disabled]="!postForm.dirty"
+                    *ngIf="postForm.dirty">
+                CANCEL
+            </button>
+            <button mat-raised-button
+                    color="primary"
+                    [disabled]="!postForm.valid">
+                SUBMIT
+            </button>
+        </mat-action-row>
+    </form>
+</mat-card>

@@ -1,0 +1,125 @@
+@import 'variables';
+
+@mixin custom-card-header-text($theme) {
+    .mat-card-header-text {
+        margin: 0;
+    }
+}
+
+// General ui-button styles
+@mixin ui-button($theme) {
+    min-width: 125px;
+    padding: 0 4 * $pd;
+    font-size: $font-normal;
+    font-weight: $font-bold;
+    border-radius: 7px;
+    border-width: 2px;
+
+    &:focus {
+        outline: none !important;
+    }
+
+    &:not(:disabled) {
+        &.mat-primary {
+            border-color: $primary;
+
+            &:hover {
+                color: $primary-hover;
+                border-color: $primary-hover;
+            }
+
+            &:active {
+                color: $primary-active;
+                border-color: $primary-active;
+            }
+        }
+
+        &.mat-accent {
+            border-color: $accent;
+
+            &:hover {
+                color: $accent-hover;
+                border-color: $accent-hover;
+            }
+
+            &:active {
+                color: $accent-active;
+                border-color: $accent-active;
+            }
+        }
+
+        &.mat-success {
+            color: $success;
+            border-color: $success;
+
+            &:hover {
+                color: $success-hover;
+                border-color: $success-hover;
+            }
+
+            &:active {
+                color: $success-active;
+                border-color: $success-active;
+            }
+        }
+
+        &.mat-warn {
+            border-color: $warn;
+
+            &:hover {
+                color: $warn-hover;
+                border-color: $warn-hover;
+            }
+
+            &:active {
+                color: $warn-active;
+                border-color: $warn-active;
+            }
+        }
+
+        &.basic {
+            border: none;
+        }
+    }
+
+    &:disabled.basic {
+        border: none;
+    }
+
+}
+
+// Button standard
+@mixin ui-button-standard($theme) {
+    button {
+        @include ui-button($theme);
+    }
+}
+
+// Button action
+@mixin ui-button-action($theme) {
+    button {
+        @include ui-button($theme);
+    }
+}
+
+// Button icon
+@mixin ui-button-icon($theme) {
+    button {
+        @include ui-button($theme);
+    }
+}
+
+// Button icon raised
+@mixin ui-button-icon-raised($theme) {
+    button {
+        @include ui-button($theme);
+    }
+}
+
+// Bundled ui-buttons
+@mixin ui-buttons($theme) {
+    @include ui-button-standard($theme);
+    @include ui-button-action($theme);
+    @include ui-button-icon($theme);
+    @include ui-button-icon-raised($theme);
+}
